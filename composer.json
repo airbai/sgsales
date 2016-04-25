@@ -1,28 +1,26 @@
 {
     "name": "caoguo sales",
     "description": "为微商提供分销解决方案",
-    "keywords": ["yii2", "framework", "advanced", "project template"],
-    "homepage": "http://www.yiiframework.com/",
+    "keywords": ["yii2", "framework", "advanced", "sales","wechat"],
+    "homepage": "https://www.caoguo.com/",
     "type": "project",
     "license": "BSD-3-Clause",
     "support": {
-        "issues": "https://github.com/yiisoft/yii2/issues?state=open",
-        "forum": "http://www.yiiframework.com/forum/",
-        "wiki": "http://www.yiiframework.com/wiki/",
-        "irc": "irc://irc.freenode.net/yii",
-        "source": "https://github.com/yiisoft/yii2"
+        "issues": "https://github.com/tsaoko/cgsales/issues?state=open",
+        "forum": "https://github.com/tsaoko/cgsales/issues",
+        "wiki": "https://github.com/tsaoko/cgsales/wiki",
+        "source": "https://github.com/tsaoko/cgsales"
     },
     "minimum-stability": "stable",
     "require": {
         "php": ">=5.4.0",
         "yiisoft/yii2": ">=2.0.6",
         "yiisoft/yii2-bootstrap": "*",
-        "yiisoft/yii2-swiftmailer": "*",
         "vova07/yii2-imperavi-widget": "*",
 		"overtrue/wechat": "~3.0",
 	  	"overtrue/pinyin": "2.*",
-		"mdmsoft/yii2-upload-file": "~1.2",
-		"tpmanc/yii2-imagick": "*"
+        "yiisoft/yii2-imagine": "~2.0.0",
+		"mdmsoft/yii2-upload-file": "~1.2"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
