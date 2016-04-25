@@ -113,3 +113,5 @@ a.desc:after {
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
         background-repeat: repeat-x;
 }
+.navbar-nav a{color:#fff;}
+.carousel-control.right{background-image: none;}
