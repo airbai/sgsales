@@ -42,7 +42,7 @@ $this->registerCssFile('/css/site.css');
         ['label' => '模板中心', 'url' => ['/templates/index']],
     ];
     if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => '注册 | 登录', 'url' => ['/site/login']];
+        $menuItems[] = ['label' => '注册/登录', 'url' => ['/site/login']];
     } else {
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')

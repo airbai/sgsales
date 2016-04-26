@@ -9,31 +9,31 @@ use yii\bootstrap\ActiveForm;
 
 $this->title = 'Login';
 $this->params['breadcrumbs'][] = $this->title;
+
+$this->registerJsFile('http://res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js');
+$js = <<<EOF
+var obj = new WxLogin({
+    id:"login_container",
+    appid: "{$wechatOptions['app_id']}",
+    scope: "snsapi_login",
+    redirect_uri: "{$wechatOptions['oauth']['callback']}",
+    state: "aaa",
+    style: "",
+    href: ""
+  });
+EOF;
+$this->registerJs($js);
 ?>
 <div class="site-login">
-    <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>Please fill out the following fields to login:</p>
 
     <div class="row">
-        <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
+        <div class="col-lg-7 col-md-7">
 
-                <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+            <div class="login_container" id="login_container">
 
-                <?= $form->field($model, 'password')->passwordInput() ?>
-
-                <?= $form->field($model, 'rememberMe')->checkbox() ?>
-
-                <div style="color:#999;margin:1em 0">
-                    If you forgot your password you can <?= Html::a('reset it', ['site/request-password-reset']) ?>.
-                </div>
-
-                <div class="form-group">
-                    <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
-                </div>
-
-            <?php ActiveForm::end(); ?>
+            </div>
         </div>
+
     </div>
 </div>

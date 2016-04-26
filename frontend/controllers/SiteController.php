@@ -12,12 +12,25 @@ use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use EasyWeChat\Foundation\Application;
+
 
 /**
  * Site controller
  */
 class SiteController extends Controller
 {
+
+    public $app;
+
+
+    public function init()
+    {
+        Yii::$app->session->open();
+        parent::init();
+        $this->app = new Application(Yii::$app->params['wechatOptions']);
+    }
+
     /**
      * @inheritdoc
      */
@@ -86,14 +99,16 @@ class SiteController extends Controller
             return $this->goHome();
         }
 
-        $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
-        } else {
-            return $this->render('login', [
-                'model' => $model,
-            ]);
-        }
+        /*
+        $oauth = $this->app->oauth;
+        $response = $oauth->scopes(['snsapi_login'])->redirect();
+        $response->send();
+        */
+
+        $data['wechatOptions'] = Yii::$app->params['wechatOptions'];
+        
+
+        return $this->render('login',$data);
     }
 
     /**
